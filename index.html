@@ -8,7 +8,7 @@
 			<link rel="stylesheet" href = "./twitchCSS.css" >
 				<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 				<script>
-					$(document).ready(function(){
+	 $(document).ready(function(){
           $('.green, .red, .white').mouseover(function(){
             $(this).animate({
                height: 110,
@@ -22,7 +22,7 @@
             }, {duration:300, easing:'swing'});
           });
           $('.green').click(function(){
-						$('.TVOff').addClass('hidden');
+            $('.TVOff').addClass('hidden');
             $('.TVOn').removeClass('hidden');
           });
           $('.red').click(function(){
@@ -43,7 +43,7 @@
                 $(this).find('img').css('opacity',1);
                 $(this).css("background-image", 'url(' + TVArray[parseInt($(this).attr('id'), 10) + 1]["im"]+')' );
             });
-            $('body').on("mouseout", "a",function(){
+            $('body').on("mouseout touchend", "a",function(){
                 $(this).find('img').attr("src","");
                          $(this).css("background-image", 'url("")');
             });
