@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://use.fontawesome.com/3250fd353d.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+			<link rel="EditURI" type="application/rsd+xml" href="//www.mediawiki.org/w/api.php?action=rsd" />
+			<link rel="stylesheet" href = "./twitchCSS.css" >
+				<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+				<script>
+					$(document).ready(function(){
+          $('.green, .red, .white').mouseover(function(){
+            $(this).animate({
+               height: 45,
+               width: 45,
+            }, {duration:300, easing:'swing'});
+          });
+          $('.green, .red, .white').mouseleave(function(){
+            $(this).animate({
+              height: 40,
+              width: 40,
+            }, {duration:300, easing:'swing'});
+          });
+          $('.green').click(function(){
+						$('.TVOff').addClass('hidden');
+            $('.TVOn').removeClass('hidden');
+          });
+          $('.red').click(function(){
+           	$('.TVOn').addClass('hidden');
+            $('.TVOff').removeClass('hidden');
+           });
+          $('.white').click(function(){
+          	$('.hidden').removeClass('hidden');
+          });
+           var TVArray = [{}], TVArrayOn = [{}], TVArrayOff = [{}], img;
+           TVEntry = function(t,s,u,i){
+              this.title = t;
+              this.scheduled = s;
+              this.url = u;
+              this.im = i
+            }
+            $('body').on("mouseover", "a", function(){
+                $(this).find('img').css('opacity',1);
+                $(this).find('img').attr("src",TVArray[parseInt($(this).attr('id'), 10) + 1]["im"] );
+            });
+            $('body').on("mouseout", "a",function(){
+                $(this).find('img').attr("src","");
+                $(this).find('img').css('opacity',0);
+            });
+            $.ajax({
+                   url:'https://wind-bow.gomix.me/twitch-api/streams/featured',
+                   dataType: 'jsonp',
+                   jsonp: 'callback',
+                   jsonpHandle: 'jsonpHandle',
+                   success: function( data ) {
+                    $.each( data.featured, function(i, field){
+                      TVArray.push(new TVEntry(field.title, field.scheduled, field.stream.channel.url, field.stream.preview.medium));
+                         if(JSON.stringify(field.scheduled) == "true"){
+                           
+                           $('.stay').append('<a class = "TVon" href=' + field.stream.channel.url+' id='+i+'>'+field.title+'<img alt="" src="" /></a>');
+                           TVArrayOn.push(new TVEntry(field.title,field.scheduled,field.stream.channel.url, field.stream.preview.medium));
+                         }else{
+                           $('.stay').append('<a class = "TVoff" href=' + field.stream.channel.url+' id='+i+'>'+field.title+'<img alt="" src="" /></a>');
+                           TVArrayOff.push(new TVEntry(field.title,field.scheduled,field.stream.channel.url, field.stream.preview.medium));
+                         }
+                      });
+                   }
+            });
+
+       	 });
+				</script>
+    </head>
+	<body style="text-align:center">
+		<h1>Twitch Search</h1>
+    <p><button class="green"></button>
+    <button class="red"></button>
+    <button class="white"></button></p>
+    <div class = "stay"></div>
+	</body>
+</html>
