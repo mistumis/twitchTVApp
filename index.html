@@ -11,14 +11,14 @@
 					$(document).ready(function(){
           $('.green, .red, .white').mouseover(function(){
             $(this).animate({
-               height: 45,
-               width: 45,
+               height: 110,
+               width: 110,
             }, {duration:300, easing:'swing'});
           });
           $('.green, .red, .white').mouseleave(function(){
             $(this).animate({
-              height: 40,
-              width: 40,
+              height: 100,
+              width: 100,
             }, {duration:300, easing:'swing'});
           });
           $('.green').click(function(){
@@ -41,11 +41,11 @@
             }
             $('body').on("mouseover", "a", function(){
                 $(this).find('img').css('opacity',1);
-                $(this).find('img').attr("src",TVArray[parseInt($(this).attr('id'), 10) + 1]["im"] );
+                $(this).css("background-image", 'url(' + TVArray[parseInt($(this).attr('id'), 10) + 1]["im"]+')' );
             });
             $('body').on("mouseout", "a",function(){
                 $(this).find('img').attr("src","");
-                $(this).find('img').css('opacity',0);
+                         $(this).css("background-image", 'url("")');
             });
             $.ajax({
                    url:'https://wind-bow.gomix.me/twitch-api/streams/featured',
