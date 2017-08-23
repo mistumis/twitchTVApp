@@ -39,7 +39,7 @@
               this.url = u;
               this.im = i
             }
-            $('body').on("mouseover click", "a", function(){
+            $('body').on("mouseover click touchstart", "a", function(){
                 $(this).find('img').css('opacity',1);
                 $(this).css("background-image", 'url(' + TVArray[parseInt($(this).attr('id'), 10) + 1]["im"]+')' );
             });
