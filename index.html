@@ -8,28 +8,28 @@
 			<link rel="stylesheet" href = "./twitchCSS.css" >
 				<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 				<script>
-	 $(document).ready(function(){
-          $('.green, .red, .white').mouseover(function(){
+					$(document).ready(function(){
+          $('.green, .red, .white').on('mouseover touchstart', function(){
             $(this).animate({
                height: 110,
                width: 110,
             }, {duration:300, easing:'swing'});
           });
-          $('.green, .red, .white').mouseleave(function(){
+          $('.green, .red, .white').on('mouseover touch', function(){
             $(this).animate({
               height: 100,
               width: 100,
             }, {duration:300, easing:'swing'});
           });
-          $('.green').click(function(){
-            $('.TVOff').addClass('hidden');
+          $('.green').on('click touch', function(){
+						$('.TVOff').addClass('hidden');
             $('.TVOn').removeClass('hidden');
           });
-          $('.red').click(function(){
+          $('.red').on('click touch',function(){
            	$('.TVOn').addClass('hidden');
             $('.TVOff').removeClass('hidden');
            });
-          $('.white').click(function(){
+          $('.white').on('click touch',function(){
           	$('.hidden').removeClass('hidden');
           });
            var TVArray = [{}], TVArrayOn = [{}], TVArrayOff = [{}], img;
