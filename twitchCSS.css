@@ -10,7 +10,7 @@ a{
   text-decoration: none;
   border: 3px solid white;
   color:white;
-  font-size:20px;
+  font-size:30px;
   font-style:bold;
   width:300px;
   height:200px;
@@ -20,8 +20,6 @@ a{
   border-radius:5%;
  
 }
-
-
 a:hover{
   text-decoration: none;
   background-image: url('');
@@ -49,14 +47,14 @@ h1{
 .green,.red,.white{
   vertical-align:text-top;
   border-radius:50%;
-  width:40px;height:40px;
+  width:100px;height:100px;
   background-color:green;
   border:2px solid white;
   margin:30px;
 }
 .stay{
   position:absolute;
-  top:200px;
+  top:300px;
 }
 .red{
   background-color:red;
@@ -79,10 +77,11 @@ button:focus{
 	outline:none;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1000px){
   a{
     width:90%;
     height:300px;
     font-size:60px;
   }
+  
 }
