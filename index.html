@@ -10,16 +10,17 @@
        <script>
 	$(document).ready(function(){
           $('body').on("click touch",".green", function(){
-		$('body').find('.TVOff').hide();
-            	$('body').find('.TVOn').show();
+		document.getElementByClassName('TVOff').style.visibility = "hidden";
+		document.getElementByClassName('TVOn').style.visibility = "visible";
           });
           $('body').on("click touch",".red", function(){
-            $('body').find('.TVOn').hide();
-            $('body').find('.TVOff').show();
+		document.getElementByClassName('TVOn').style.visibility = "hidden";
+		document.getElementByClassName('TVOff').style.visibility = "visible";
            });
           $('body').on("click touch", ".white",function(e){
 		  e.preventDefault();
-          	$('body').find('.TVOff').show();$('body').find('.TVOn').show();
+          	document.getElementByClassName('TVOff').style.visibility = "visible";
+		document.getElementByClassName('TVOn').style.visibility = "visible";
           });
            var TVArray = [{}], TVArrayOn = [{}], TVArrayOff = [{}], img;
            TVEntry = function(t,s,u,i){
