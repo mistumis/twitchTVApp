@@ -10,12 +10,12 @@
        <script>
 	$(document).ready(function(){
           $('body').on("click touch",".green", function(){
-		document.getElementByClassName('TVOff').style.visibility = "hidden";
-		document.getElementByClassName('TVOn').style.visibility = "visible";
+		document.getElementsByClassName('TVOff').style.visibility = "hidden";
+		document.getElementsByClassName('TVOn').style.visibility = "visible";
           });
           $('body').on("click touch",".red", function(){
-		document.getElementByClassName('TVOn').style.visibility = "hidden";
-		document.getElementByClassName('TVOff').style.visibility = "visible";
+		document.getElementsByClassName('TVOn').style.visibility = "hidden";
+		document.getElementsByClassName('TVOff').style.visibility = "visible";
            });
           $('body').on("click touch", ".white",function(e){
 		  e.preventDefault();
