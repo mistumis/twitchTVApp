@@ -10,17 +10,17 @@
        <script>
 	$(document).ready(function(){
           $('body').on("click touch",".green", function(){
-		$('div').find('.TVOff').css({"visibility":"hidden"});
-		$('div').find('.TVOn').css({"visibility":"visible"}); 
+		$('div').find('.TVOff').css({"display":"none"});
+		$('div').find('.TVOn').css({"display":"inline-block"}); 
           });
           $('body').on("click touch",".red", function(){
-		$('div').find('.TVOn').css({"visibility":"hidden"});
-		$('div').find('.TVOff').css({"visibility":"visible"}); 
+		$('div').find('.TVOn').css({"display":"none"});
+		$('div').find('.TVOff').css({"display":"inline-block"}); 
            });
           $('body').on("click touch", ".white",function(e){
 		  e.preventDefault();
-		$('div').find('.TVOn').css({"visibility":"visible"});
-		$('div').find('.TVOff').css({"visibility":"visible"}); 
+		$('div').find('.TVOn').css({"display":"inline-block"});
+		$('div').find('.TVOff').css({"display":"inline-block"}); 
           });
            var TVArray = [{}], TVArrayOn = [{}], TVArrayOff = [{}], img;
            TVEntry = function(t,s,u,i){
