@@ -9,8 +9,8 @@
 				<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
        <script>
 	$(document).ready(function(){
-          $('div').on("click",".green", function(){
-		alert("hi");
+          $(document).on("click",".green", function(e){
+	
 		$('div').find('.TVOff').css({"display":"none"});
 		$('div').find('.TVOff').css({"opacity":"0"});
 		$('div').find('.TVOn').css({"display":"inline-block"}); 
