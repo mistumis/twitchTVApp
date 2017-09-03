@@ -7,20 +7,24 @@
 			<link rel="EditURI" type="application/rsd+xml" href="//www.mediawiki.org/w/api.php?action=rsd" />
 			<link rel="stylesheet" href = "./twitchCSS.css" >
 				<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-       <script>
-	$(document).ready(function(){
-          $(".green").click(function(e){
-		$(document).find('.TVOn').show();
-		$(document).find('.TVOff').hide();
+				<script>
+					$(document).ready(function(){
+
+					
+          $('.green').on('click touch', function(){
+          	$('.On').show();
+            $('.Off').hide();
+						//$('.TVOff').addClass('hidden');
+            //$('.TVOn').removeClass('hidden');
           });
-          $(".red").click(function(e){
-		$('div').find('.TVOn').hide();
-		$('div').find('.TVOff').show(); 
-           });
-          $(".white").click(function(e){
-		  e.preventDefault();
-		$('div').find('.TVOn').show();
-		$('div').find('.TVOff').show();
+          $('.red').on('click touch',function(){
+            $('.On').hide();
+            $('.Off').show();
+          });
+          $('.white').on('click touch',function(){
+            $('.On').show();
+            $('.Off').show();
+
           });
            var TVArray = [{}], TVArrayOn = [{}], TVArrayOff = [{}], img;
            TVEntry = function(t,s,u,i){
@@ -47,10 +51,10 @@
                       TVArray.push(new TVEntry(field.title, field.scheduled, field.stream.channel.url, field.stream.preview.medium));
                          if(JSON.stringify(field.scheduled) == "true"){
                            
-                           $('.stay').append('<a class = "TVon" href=' + field.stream.channel.url+' id='+i+'>'+field.title+'<img alt="" src="" /></a>');
+                           $('.On').append('<a class = "TVon" href=' + field.stream.channel.url+' id='+i+'>'+field.title+'<img alt="" src="" /></a>');
                            TVArrayOn.push(new TVEntry(field.title,field.scheduled,field.stream.channel.url, field.stream.preview.medium));
                          }else{
-                           $('.stay').append('<a class = "TVoff" href=' + field.stream.channel.url+' id='+i+'>'+field.title+'<img alt="" src="" /></a>');
+                           $('.Off').append('<a class = "TVoff" href=' + field.stream.channel.url+' id='+i+'>'+field.title+'<img alt="" src="" /></a>');
                            TVArrayOff.push(new TVEntry(field.title,field.scheduled,field.stream.channel.url, field.stream.preview.medium));
                          }
                       });
@@ -65,6 +69,7 @@
     <p><button class="green"></button>
     <button class="red"></button>
     <button class="white"></button></p>
-    <div class = "stay"></div>
+    <div class = "On"></div>
+    <div class = " Off"></div>
 	</body>
 </html>
