@@ -9,17 +9,17 @@
 				<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
        <script>
 	$(document).ready(function(){
-          $(document).on("click",".green", function(e){
+          $(".green").click(function(e){
 	
 		$('div').find('.TVOff').css({"display":"none"});
 		$('div').find('.TVOff').css({"opacity":"0"});
 		$('div').find('.TVOn').css({"display":"inline-block"}); 
           });
-          $('body').on("click touch",".red", function(){
+          $(".red").click(function(e){
 		$('div').find('.TVOn').css({"display":"none"});
 		$('div').find('.TVOff').css({"display":"inline-block"}); 
            });
-          $('body').on("click touch", ".white",function(e){
+          $(".white").click(function(e){
 		  e.preventDefault();
 		$('div').find('.TVOn').css({"display":"inline-block"});
 		$('div').find('.TVOff').css({"display":"inline-block"}); 
