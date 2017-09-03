@@ -9,27 +9,32 @@
 				<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 				<script>
 					$(document).ready(function(){
-          $('.green, .red, .white').on('mouseover touchstart', function(){
+          $('.green, .red, .white').on('mouseover touchstart', function(e){
+	    e.preventDefault();
             $(this).animate({
                height: 110,
                width: 110,
             }, {duration:300, easing:'swing'});
           });
-          $('.green, .red, .white').on('mouseover touchend', function(){
+          $('.green, .red, .white').on('mouseover touchend', function(e){
+	    e.preventDefault();
             $(this).animate({
               height: 100,
               width: 100,
             }, {duration:300, easing:'swing'});
           });
-          $('.green').on('click touch', function(){
-						$('.TVOff').addClass('hidden');
-            $('.TVOn').removeClass('hidden');
+          $('.green').on('click touch', function(e){
+		e.preventDefault();
+		$('.TVOff').addClass('hidden');
+            	$('.TVOn').removeClass('hidden');
           });
-          $('.red').on('click touch',function(){
+          $('.red').on('click touch',function(e){
+		  e.preventDefault();
            	$('.TVOn').addClass('hidden');
             $('.TVOff').removeClass('hidden');
            });
-          $('.white').on('click touch',function(){
+          $('.white').on('click touch',function(e){
+		  e.preventDefault();
           	$('.hidden').removeClass('hidden');
           });
            var TVArray = [{}], TVArrayOn = [{}], TVArrayOff = [{}], img;
