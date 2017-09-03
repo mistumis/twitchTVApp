@@ -11,6 +11,7 @@
 	$(document).ready(function(){
           $('body').on("click touch",".green", function(){
 		$('div').find('.TVOff').css({"display":"none"});
+		$('div').find('.TVOff').css({"opacity":"0"});
 		$('div').find('.TVOn').css({"display":"inline-block"}); 
           });
           $('body').on("click touch",".red", function(){
