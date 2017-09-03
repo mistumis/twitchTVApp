@@ -29,7 +29,7 @@ a:hover{
 img{
   border:0;
 }
-.hidden{display:none;}
+.hidden{display:none;visibility: hidden;}
 
 .TVon{
   background-color:#1EAE09;
