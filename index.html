@@ -19,8 +19,8 @@
            });
           $('body').on("click touch", ".white",function(e){
 		  e.preventDefault();
-          	document.getElementByClassName('TVOff').style.visibility = "visible";
-		document.getElementByClassName('TVOn').style.visibility = "visible";
+          	document.getElementsByClassName('TVOff').style.visibility = "visible";
+		document.getElementsByClassName('TVOn').style.visibility = "visible";
           });
            var TVArray = [{}], TVArrayOn = [{}], TVArrayOff = [{}], img;
            TVEntry = function(t,s,u,i){
